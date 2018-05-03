@@ -1,6 +1,7 @@
 package Main;
 
 import java.util.List;
+import java.util.Scanner;
 
 import net.jeremybrooks.knicker.AccountApi;
 import net.jeremybrooks.knicker.WordApi;
@@ -23,8 +24,15 @@ public class testingMain {
 	    System.exit(1);
 	}
 
-
-	System.out.println(Reader.getSyn("car", 4));
+	String s = "I threw the car into the street";
+	String synSentence = "";
+	Scanner scan = new Scanner(s);
+	while (scan.hasNext()) {
+		String word = scan.next();
+		synSentence += Reader.getSyn(word, 0) + " ";
+	}
+	System.out.println(s);
+	System.out.println(synSentence);
 
 	}
 }

@@ -13,15 +13,20 @@ public class Reader {
 	public static String getSyn(String word, int howFar) throws KnickerException {
 		Set<RelationshipType> typeOfRelation = new HashSet<RelationshipType>();
 		typeOfRelation.add(RelationshipType.synonym);
-		List<Related> relSyn = WordApi.related(word, false, typeOfRelation, 0);
-		List<String> synonyms = relSyn.get(0).getWords();
-		try {
-			// Could be too long
-			return synonyms.get(howFar);
+		List<Related> relSyn = WordApi.related(word, false, typeOfRelation, 20);
+		if (relSyn.size() > 0) {
+			List<String> synonyms = relSyn.get(0).getWords();
+			try {
+				// Could be too long
+				return synonyms.get(howFar);
+			}
+			catch (IndexOutOfBoundsException e) {
+				// Get the last one
+				return synonyms.get(synonyms.size() - 1);
+			}
 		}
-		catch (IndexOutOfBoundsException e) {
-			// Get the last one
-			return synonyms.get(synonyms.size() - 1);
+		else {
+			return word;
 		}
 	}
 }
