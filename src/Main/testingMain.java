@@ -12,7 +12,7 @@ import net.jeremybrooks.knicker.dto.TokenStatus;
 public class testingMain {
 	public static void main(String[] args) throws Exception {
 	    // use your API key here
-	    System.setProperty("WORDNIK_API_KEY", "dfae92911e9825354410906c9d906307da77ddfb109f145c7");
+	    System.setProperty("WORDNIK_API_KEY", "SECRET_API_KEY");
 
 
 	// check the status of the API key
